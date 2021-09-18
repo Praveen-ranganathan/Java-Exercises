@@ -1,161 +1,227 @@
+//Salary.java
+import java.util.*;
 import java.util.Scanner;
+
 class Employee
 {
-    int Emp_id;
-    String Emp_name;
-    String Address;
-    String Mail_Id;
-    String Mobile_no;
-    Employee(){}
-    Employee(int id,String name,String addr,String mail,String mob)
-    {
-        this.Emp_id=id;
-        this.Emp_name=name;
-        this.Address=addr;
-        this.Mail_Id=mail;
-        this.Mobile_no=mob;
-    }
+  int empid;
+  long mobile;
+  String name, address, mailid;
+  Scanner get = new Scanner (System.in);
+
+
+
+  void getdata ()
+  {
+    System.out.println ("Enter Name of the Employee");
+    name = get.nextLine ();
+    System.out.println ("Enter Mail id");
+    mailid = get.nextLine ();
+    System.out.println ("Enter Address of the Employee:");
+    address = get.nextLine ();
+    System.out.println ("Enter employee id ");
+    empid = get.nextInt ();
+    System.out.println ("Enter Mobile Number");
+    mobile = get.nextLong ();
+  }
+  void display ()
+  {
+    System.out.println ("Employee Name: " + name);
+    System.out.println ("Employee id : " + empid);
+    System.out.println ("Mail id : " + mailid);
+    System.out.println ("Address: " + address);
+    System.out.println ("Mobile Number: " + mobile);
+  }
+
 }
+
 class Programmer extends Employee
 {
-    double BP,Gross_salary,Net_salary;
-    public Programmer(int id,String name,String addr,String mail,String mob)
-    {
-        super(id,name,addr,mail,mob);
-        
-    }
-    void computePay()
-    {
-        System.out.print("Enter Basic Pay:");
-        Scanner input=new Scanner(System.in);
-        BP=input.nextDouble();
-        double DA,HRA,PF,Fund;
-        DA=(BP*97/100);
-        HRA=(BP*10/100);
-        PF=(BP*12/100);
-        Fund=(BP*0.1/100);
-        Gross_salary=BP+DA+HRA;
-        Net_salary=BP+DA+HRA-(PF+Fund);
-        System.out.println("Emp_ID: "+Emp_id);
-        System.out.println("Emp_Name: "+Emp_name);
-        System.out.println("Address: "+Address);
-        System.out.println("Mail_ID: "+Mail_Id);
-        System.out.println("Mobile Number: "+Mobile_no);
-        System.out.println("Gross Pay: "+Gross_salary);
-        System.out.println("Net Pay: "+Net_salary);
-        
-    }
+  double salary, bp, da, hra, pf, club, net, gross;
+  void getprogrammer ()
+  {
+    System.out.println ("Enter basic pay");
+    bp = get.nextDouble ();
+  }
+
+
+  void calculateprog ()
+  {
+    da = (0.97 * bp);
+    hra = (0.10 * bp);
+    pf = (0.12 * bp);
+    club = (0.1 * bp);
+    gross = (bp + da + hra);
+    net = (gross - pf - club);
+    System.out.println ("****************");
+    System.out.println ("PAY SLIP FOR PROGRAMMER");
+    System.out.println ("****************");
+    System.out.println ("Basic Pay: Rs. " + bp);
+    System.out.println ("DA: Rs. " + da);
+    System.out.println ("HRA: Rs. " + hra);
+    System.out.println ("PF: Rs. " + pf);
+    System.out.println ("CLUB: Rs. " + club);
+    System.out.println ("GROSS PAY: Rs. " + gross);
+    System.out.println ("NET PAY: Rs. " + net);
+  }
 }
-class Asst_Professor extends Employee
+
+
+class Asstprofessor extends Employee
 {
-    double BP,Gross_salary,Net_salary;
-    public Asst_Professor(int id,String name,String addr,String mail,String mob)
-    {
-        super(id,name,addr,mail,mob);
-        
-    }
-    void computePay()
-    {
-        System.out.print("Enter Basic Pay:");
-        Scanner input=new Scanner(System.in);
-        BP=input.nextDouble();
-        Gross_salary=BP;
-        double DA,HRA,PF,Fund;
-        DA=(BP*97/100);
-        HRA=(BP*10/100);
-        PF=(BP*12/100);
-        Fund=(BP*0.1/100);
-        Net_salary=BP+DA+HRA-(PF+Fund);
-        System.out.println("Emp_ID: "+Emp_id);
-        System.out.println("Emp_Name: "+Emp_name);
-        System.out.println("Address: "+Address);
-        System.out.println("Mail_ID: "+Mail_Id);
-        System.out.println("Mobile Number: "+Mobile_no);
-        System.out.println("Gross Pay: "+Gross_salary);
-        System.out.println("Net Pay: "+Net_salary);
-        
-    }
+  double salary, bp, da, hra, pf, club, net, gross;
+  void getasst ()
+  {
+    System.out.println ("Enter basic pay");
+    bp = get.nextDouble ();
+  }
+  void calculateasst ()
+  {
+    da = (0.97 * bp);
+    hra = (0.10 * bp);
+    pf = (0.12 * bp);
+    club = (0.1 * bp);
+    gross = (bp + da + hra);
+    net = (gross - pf - club);
+    System.out.println ("*************");
+    System.out.println ("PAY SLIP FOR ASSISTANT PROFESSOR");
+    System.out.println ("*************");
+    System.out.println ("Basic Pay: Rs. " + bp);
+    System.out.println ("DA: Rs. " + da);
+    System.out.println ("HRA: Rs. " + hra);
+    System.out.println ("PF: Rs. " + pf);
+    System.out.println ("CLUB: Rs. " + club);
+    System.out.println ("GROSS PAY: Rs. " + gross);
+    System.out.println ("NET PAY: Rs. " + net);
+  }
 }
-class Associate_Professor extends Employee
+
+
+class Associateprofessor extends Employee
 {
-    double BP,Gross_salary,Net_salary;
-    public Associate_Professor(int id,String name,String addr,String mail,String mob)
-    {
-        super(id,name,addr,mail,mob);
-        
-    }
-    void computePay()
-    {
-        System.out.print("Enter Basic Pay:");
-        Scanner input=new Scanner(System.in);
-        BP=input.nextDouble();
-        Gross_salary=BP;
-        double DA,HRA,PF,Fund;
-        DA=(BP*97/100);
-        HRA=(BP*10/100);
-        PF=(BP*12/100);
-        Fund=(BP*0.1/100);
-        Net_salary=BP+DA+HRA-(PF+Fund);
-        System.out.println("Emp_ID: "+Emp_id);
-        System.out.println("Emp_Name: "+Emp_name);
-        System.out.println("Address: "+Address);
-        System.out.println("Mail_ID: "+Mail_Id);
-        System.out.println("Mobile Number: "+Mobile_no);
-        System.out.println("Gross Pay: "+Gross_salary);
-        System.out.println("Net Pay: "+Net_salary);
-        
-    }
-    
+  double salary, bp, da, hra, pf, club, net, gross;
+  void getassociate ()
+  {
+    System.out.println ("Enter basic pay");
+    bp = get.nextDouble ();
+  }
+
+  void calculateassociate ()
+  {
+    da = (0.97 * bp);
+    hra = (0.10 * bp);
+    pf = (0.12 * bp);
+    club = (0.1 * bp);
+    gross = (bp + da + hra);
+    net = (gross - pf - club);
+    System.out.println ("*************");
+    System.out.println ("PAY SLIP FOR ASSOCIATE PROFESSOR");
+    System.out.println ("*************");
+    System.out.println ("Basic Pay: Rs. " + bp);
+    System.out.println ("DA: Rs. " + da);
+    System.out.println ("HRA: Rs. " + hra);
+    System.out.println ("PF: Rs. " + pf);
+    System.out.println ("CLUB: Rs. " + club);
+    System.out.println ("GROSS PAY: Rs. " + gross);
+    System.out.println ("NET PAY: Rs. " + net);
+  }
 }
+
 class Professor extends Employee
 {
-    double BP,Gross_salary,Net_salary;
-    public Professor(int id,String name,String addr,String mail,String mob)
-    {
-        super(id,name,addr,mail,mob);
-        
-    }
-    void computePay()
-    {
-        System.out.print("Enter Basic Pay:");
-        Scanner input=new Scanner(System.in);
-        BP=input.nextDouble();
-        Gross_salary=BP;
-        double DA,HRA,PF,Fund;
-        DA=(BP*97/100);
-        HRA=(BP*10/100);
-        PF=(BP*12/100);
-        Fund=(BP*0.1/100);
-        Net_salary=BP+DA+HRA-(PF+Fund);
-        System.out.println("Emp_ID: "+Emp_id);
-        System.out.println("Emp_Name: "+Emp_name);
-        System.out.println("Address: "+Address);
-        System.out.println("Mail_ID: "+Mail_Id);
-        System.out.println("Mobile Number: "+Mobile_no);
-        System.out.println("Gross Pay: "+Gross_salary);
-        System.out.println("Net Pay: "+Net_salary);
-        
-    }
+  double salary, bp, da, hra, pf, club, net, gross;
+  void getprofessor ()
+  {
+    System.out.println ("Enter basic pay");
+    bp = get.nextDouble ();
+  }
+
+  void calculateprofessor ()
+  {
+    da = (0.97 * bp);
+    hra = (0.10 * bp);
+    pf = (0.12 * bp);
+    club = (0.1 * bp);
+    gross = (bp + da + hra);
+    net = (gross - pf - club);
+    System.out.println ("********");
+    System.out.println ("PAY SLIP FOR PROFESSOR");
+    System.out.println ("********");
+    System.out.println ("Basic Pay: Rs. " + bp);
+    System.out.println ("DA: Rs. " + da);
+    System.out.println ("HRA: Rs. " + hra);
+    System.out.println ("PF: Rs. " + pf);
+    System.out.println ("CLUB: Rs. " + club);
+    System.out.println ("GROSS PAY: Rs. " + gross);
+    System.out.println ("NET PAY: Rs. " + net);
+  }
+
 }
-public class PaySlip
+public class Salary
 {
-    public static void main(String[] args)
-    {
-        Programmer p=new Programmer(10,"AAA","xxx","aaa_xxx@gmail.com","1111111111");
-        System.out.println("------- Programmer ----------");
-        p.computePay();
-        Asst_Professor Ap=new
-        Asst_Professor(20,"BBB","yyy","bbb_yyy@gmail.com","2222222222");
-        System.out.println("------- Assistant Professor ----------");
-        Ap.computePay();
-        Associate_Professor As=new
-        Associate_Professor(30,"CCC","zzz","ccc_zzz@gmail.com","3333333333");
-        System.out.println("------- Associate Professor ----------");
-        As.computePay();
-        Professor pf=new
-        Professor(40,"DDD","www","ddd_www@gmail.com","44444444444");
-        System.out.println("------- Professor ----------");
-        pf.computePay();
-        
-    }
+  public static void main (String[]args)
+  {
+
+
+    int choice, cont;
+    do
+      {
+	System.out.println ("PAYROLL");
+	System.out.
+	  println
+	  (" 1.PROGRAMMER \t 2.ASSISTANT PROFESSOR \t 3.ASSOCIATE PROFESSOR \t 4.PROFESSOR ");
+	Scanner c = new Scanner (System.in);
+
+	  System.out.print ("Enter Your Choice:");
+	  choice = c.nextInt ();
+	switch (choice)
+	  {
+	  case 1:
+	    {
+	      Programmer p = new Programmer ();
+	        p.getdata ();
+	        p.getprogrammer ();
+	        p.display ();
+	        p.calculateprog ();
+	        break;
+	    }
+	    case 2:
+	    {
+	      Asstprofessor asst = new Asstprofessor ();
+	      asst.getdata ();
+	      asst.getasst ();
+	      asst.display ();
+	      asst.calculateasst ();
+	      break;
+	    }
+	  case 3:
+	    {
+	      Associateprofessor asso = new Associateprofessor ();
+	      asso.getdata ();
+	      asso.getassociate ();
+	      asso.display ();
+	      asso.calculateassociate ();
+	      break;
+	    }
+	  case 4:
+	    {
+	      Professor prof = new Professor ();
+
+	      prof.getdata ();
+	      prof.getprofessor ();
+	      prof.display ();
+	      prof.calculateprofessor ();
+	      break;
+	    }
+
+
+
+	  }
+	System.out.print ("Please enter 0 to quit and 1 to continue: ");
+
+	cont = c.nextInt ();
+      }
+    while (cont == 1);
+
+  }
 }
